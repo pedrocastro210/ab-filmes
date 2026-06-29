@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1766943799555,
+    "name": "Pedro Castro",
+    "email": "pedro@teste.com",
+    "password": "angular123"
+  },
+  {
+    "id": 1765014260993,
+    "name": "João Angular",
+    "email": "joao@teste.com",
+    "password": "12345678"
+  }
+]

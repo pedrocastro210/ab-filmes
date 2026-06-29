@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    /* Destino e Origem */
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    /* Módulos e Alvo */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ESNext",
+    "esModuleInterop": true,
+
+    /* Debug e Tipagem */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "skipLibCheck": true,
+
+    /* Rigor */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "isolatedModules": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

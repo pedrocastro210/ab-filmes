@@ -1,0 +1,382 @@
+type: collection.insomnia.rest/5.0
+name: Gerenciador de Filmes Rocketseat
+meta:
+  id: wrk_13e2e69a522f496cb4d0d05e09419cbc
+  created: 1765013723530
+  modified: 1765013723530
+  description: ""
+collection:
+  - name: server
+    meta:
+      id: fld_6f41d52029954a35a15bef386989a7f8
+      created: 1765013737161
+      modified: 1765013737161
+      sortKey: -1765013737161
+      description: ""
+    children:
+      - url: "{{ _.baseUrl }}/"
+        name: Check Server
+        meta:
+          id: req_77bb368f490f43278808cbd4008bf92a
+          created: 1765013748916
+          modified: 1765103256266
+          isPrivate: false
+          description: ""
+          sortKey: -1765013748916
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: users
+    meta:
+      id: fld_be3b2d35cbfc470ebf36c8dce5c81f57
+      created: 1765013744566
+      modified: 1765013744566
+      sortKey: -1765013744566
+      description: ""
+    children:
+      - url: "{{ _.baseUrl }}/users"
+        name: Create User
+        meta:
+          id: req_de8e324061624decb1c9068bdbcbf9d2
+          created: 1765013832480
+          modified: 1765103249097
+          isPrivate: false
+          description: ""
+          sortKey: -1765013832480
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "name": "João Angular",
+              "email": "joao@teste.com",
+              "password": "123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/users/login"
+        name: Login User
+        meta:
+          id: req_92e749b72cbe4b079e350d57cc4a9699
+          created: 1765014116843
+          modified: 1766517074549
+          isPrivate: false
+          description: ""
+          sortKey: -1765014116843
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "joao@teste.com",
+              "password": "123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/users/validate-token"
+        name: Validate Token
+        meta:
+          id: req_b54bd5bab25f4dbc99ec24f247129f82
+          created: 1766516967197
+          modified: 1766517106461
+          isPrivate: false
+          description: ""
+          sortKey: -1766516967197
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_92e749b72cbe4b079e350d57cc4a9699',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+          disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: movies
+    meta:
+      id: fld_d4f5b85467934f34b07a606eeccf3630
+      created: 1765017678599
+      modified: 1765017678599
+      sortKey: -1765017678599
+      description: ""
+    children:
+      - url: "{{ _.baseUrl }}/movies"
+        name: All Movies
+        meta:
+          id: req_3b7bfad5d0de4fdc803b4e87a66c7afa
+          created: 1765017681449
+          modified: 1765103193713
+          isPrivate: false
+          description: ""
+          sortKey: -1765017681449
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_92e749b72cbe4b079e350d57cc4a9699',
+            'b64::JC50b2tlbg==::46b', 'no-history', 60 %}"
+          prefix: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/movies/1"
+        name: Get Movie By ID
+        meta:
+          id: req_cd318cba560948cf95051ad2014b034f
+          created: 1765102338452
+          modified: 1765103237215
+          isPrivate: false
+          description: ""
+          sortKey: -1765102338452
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_92e749b72cbe4b079e350d57cc4a9699',
+            'b64::JC50b2tlbg==::46b', 'no-history', 60 %}"
+          prefix: ""
+          disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/movies/1/rate"
+        name: Rate Movie
+        meta:
+          id: req_6f2fd667d4bc4998afc1486202d965cd
+          created: 1765104138664
+          modified: 1765104331172
+          isPrivate: false
+          description: ""
+          sortKey: -1765104138664
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"rating": 5
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_92e749b72cbe4b079e350d57cc4a9699',
+            'b64::JC50b2tlbg==::46b', 'no-history', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/movies"
+        name: Create Movie
+        meta:
+          id: req_a52b1e13504e4a14a5706fb524086fd8
+          created: 1765665849827
+          modified: 1765666847800
+          isPrivate: false
+          description: ""
+          sortKey: -1765665849827
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_e9890b31731f44fba251bd86443baaf1
+              name: titulo
+              value: Interestelar
+              description: ""
+              disabled: false
+            - id: pair_79f23f3ff66d480e959f40fa46e527af
+              name: descricao
+              value: Exploração espacial
+              description: ""
+              disabled: false
+            - id: pair_78b91f5755394a40b1188351f29fa7f0
+              name: anoLancamento
+              value: "2014"
+              description: ""
+              disabled: false
+            - id: pair_cde83a9f3992415c9a708ebb80b7dab5
+              name: genero
+              value: Sci-Fi
+              description: ""
+              disabled: false
+            - id: pair_847505613d294153860fca0c9a825319
+              name: image
+              value: ""
+              description: ""
+              disabled: false
+              type: file
+              fileName: C:\Users\devfo\OneDrive\Imagens\6ricSDD83BClJsFdGB6x7cM0MFQ.jpg
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          prefix: ""
+          token: "{% response 'body', 'req_92e749b72cbe4b079e350d57cc4a9699',
+            'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: favorites
+    meta:
+      id: fld_c688120eeb9a4de283aa9859021ace83
+      created: 1765105785256
+      modified: 1765105785256
+      sortKey: -1765105785256
+      description: ""
+    children:
+      - url: "{{ _.baseUrl }}/favorites"
+        name: List User Favorites
+        meta:
+          id: req_1ed0102fd7204daf9a8ceb17fc50aafa
+          created: 1765105787755
+          modified: 1765105964899
+          isPrivate: false
+          description: ""
+          sortKey: -1765105787755
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_92e749b72cbe4b079e350d57cc4a9699',
+            'b64::JC50b2tlbg==::46b', 'no-history', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/favorites/1765666339447"
+        name: Add Movie To Favorite
+        meta:
+          id: req_820b611b17134b0991c8e1ca803544aa
+          created: 1765105874939
+          modified: 1765666951396
+          isPrivate: false
+          description: ""
+          sortKey: -1765105874939
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_92e749b72cbe4b079e350d57cc4a9699',
+            'b64::JC50b2tlbg==::46b', 'no-history', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.baseUrl }}/favorites/1"
+        name: Remove Movie
+        meta:
+          id: req_1231a497d5be404caf75411a334f9456
+          created: 1765105988825
+          modified: 1765106064234
+          isPrivate: false
+          description: ""
+          sortKey: -1765105988825
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.3.0
+        authentication:
+          type: bearer
+          token: "{% response 'body', 'req_92e749b72cbe4b079e350d57cc4a9699',
+            'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a011a117bfdc967ebaeac534e06547ad6d0bda01
+    created: 1765013723537
+    modified: 1765013723537
+environments:
+  name: Localhost
+  meta:
+    id: env_a011a117bfdc967ebaeac534e06547ad6d0bda01
+    created: 1765013723534
+    modified: 1765103152305
+    isPrivate: false
+  data:
+    baseUrl: localhost:3000

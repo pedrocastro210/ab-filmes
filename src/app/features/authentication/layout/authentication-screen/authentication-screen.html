@@ -1,0 +1,42 @@
+<div class="flex h-screen w-full bg-[#121214] text-gray-100 font-sans">
+  <!-- Imagem da esquerda -->
+  <div
+    class="hidden md:flex md:w-1/2 bg-[url('/images/login-image.svg')] bg-cover bg-center bg-no-repeat flex-col justify-between p-10 relative"
+  >
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative z-10">
+      <img src="images/logo.svg" alt="Logo" class="w-12 h-12 mb-4" />
+    </div>
+
+    <div class="relative z-10 mb-10">
+      <h2 class="text-3xl font-bold mb-2">ab filmes</h2>
+      <p class="text-gray-200">O guia definitivo para os amantes do cinema</p>
+    </div>
+  </div>
+
+  <!-- Formulários da direita -->
+  <div class="w-full md:w-1/2 flex items-center justify-center p-8">
+    <div class="w-full max-w-md space-y-8">
+      <!-- Botões de Login e Cadastro -->
+      <div class="flex bg-[#202024] p-1 rounded-lg">
+        <button
+          class="flex-1 py-2 text-sm text-gray-400 hover:text-white transition cursor-pointer"
+          routerLink="login"
+          routerLinkActive="bg-[#2c2c30] rounded font-medium text-purple-800 shadow"
+        >
+          Login
+        </button>
+        <button
+          class="flex-1 py-2 text-sm text-gray-400 hover:text-white transition cursor-pointer"
+          routerLink="register"
+          routerLinkActive="bg-[#2c2c30] rounded font-medium text-purple-800 shadow"
+        >
+          Cadastro
+        </button>
+      </div>
+
+      <router-outlet />
+    </div>
+  </div>
+</div>

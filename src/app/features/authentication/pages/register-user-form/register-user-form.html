@@ -1,0 +1,90 @@
+<!-- Formulário de Cadastro de Usuário -->
+<div class="space-y-8">
+  <div>
+    <h1 class="text-2xl font-bold text-white">Crie sua conta</h1>
+  </div>
+
+  <div class="space-y-4">
+    <div
+      class="flex items-center bg-[#202024] rounded-lg border border-transparent focus-within:border-purple-700 transition px-4 py-3"
+    >
+      <img src="images/username.svg" class="w-5 h-5 mr-3 opacity-50" />
+      <input
+        [formField]="registerForm.name"
+        placeholder="Nome"
+        class="bg-transparent outline-none text-white w-full placeholder-gray-500"
+      />
+    </div>
+
+    @if(registerForm.name().touched() && registerForm.name().invalid()) {
+      <p class="text-sm font-bold text-red-400">{{ registerForm.name().errors()[0].message }}</p>
+    }
+
+    <div
+      class="flex items-center bg-[#202024] rounded-lg border border-transparent focus-within:border-purple-700 transition px-4 py-3"
+    >
+      <img src="images/email.svg" class="w-5 h-5 mr-3 opacity-50" />
+      <input
+        [formField]="registerForm.email"
+        placeholder="E-mail"
+        class="bg-transparent outline-none text-white w-full placeholder-gray-500"
+      />
+
+    </div>
+
+    @if(registerForm.email().touched() && registerForm.email().invalid()) {
+      <p class="text-sm font-bold text-red-400">{{ registerForm.email().errors()[0].message }}</p>
+    }
+
+    <div
+      class="flex items-center bg-[#202024] rounded-lg border border-transparent focus-within:border-purple-700 transition px-4 py-3"
+    >
+      <img src="images/password.svg" class="w-5 h-5 mr-3 opacity-50" />
+      <input
+        [formField]="registerForm.password"
+        placeholder="Senha"
+        type="password"
+        class="bg-transparent outline-none text-white w-full placeholder-gray-500"
+      />
+    </div>
+
+    @if(registerForm.password().touched() && registerForm.password().invalid()) {
+      <p class="text-sm font-bold text-red-400">{{ registerForm.password().errors()[0].message }}</p>
+    }
+
+    <div
+      class="flex items-center bg-[#202024] rounded-lg border border-transparent focus-within:border-purple-700 transition px-4 py-3"
+    >
+      <img src="images/password.svg" class="w-5 h-5 mr-3 opacity-50" />
+      <input
+        [formField]="registerForm.confirmPassword"
+        placeholder="Confirmar senha"
+        type="password"
+        class="bg-transparent outline-none text-white w-full placeholder-gray-500"
+      />
+    </div>
+
+    @if(registerForm.confirmPassword().touched() && registerForm.confirmPassword().invalid()) {
+      <p class="text-sm font-bold text-red-400">{{ registerForm.confirmPassword().errors()[0].message }}</p>
+    }
+
+  </div>
+
+  <button
+    (click)="register()"
+    [disabled]="registerResource.isLoading() || registerForm().invalid()"
+    class="w-full bg-purple-800 hover:bg-purple-700 text-white font-bold py-3 rounded-lg transition duration-200 cursor-pointer
+    disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-purple-800"
+  >
+    Criar
+  </button>
+
+  @if(registerError()) {
+    <p class="text-sm font-bold text-red-400">{{ registerError() }}</p>
+  } @else if(successMessage()) {
+    <p class="text-sm font-bold text-green-400">{{ successMessage() }}</p>
+  } @else {
+    <p class="text-sm font-bold text-red-400">&nbsp;</p>
+  }
+
+</div>

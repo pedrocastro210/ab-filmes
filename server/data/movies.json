@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1765666339447,
+    "titulo": "Matrix 4",
+    "descricao": "Retorne a um mundo de duas realidades: uma, a vida cotidiana; a outra, o que se esconde por trás dela. Para descobrir se sua realidade é uma construção, para realmente se conhecer, o Sr. Anderson terá que escolher seguir o coelho branco mais uma vez.",
+    "genero": "Sci-Fi",
+    "anoLancamento": 2021,
+    "caminhoImagem": "/uploads/image-1765666339432-345152340.jpg",
+    "qtdVotos": 105,
+    "mediaVotos": 3.3457
+  },
+  {
+    "id": 1765666870211,
+    "titulo": "Interestelar",
+    "descricao": "Num futuro distópico onde a Terra se tornou praticamente inabitável, uma equipe de astronautas embarca numa missão para encontrar um novo lar para a humanidade.",
+    "genero": "Sci-Fi",
+    "anoLancamento": 2014,
+    "caminhoImagem": "/uploads/image-1765666870177-14156342.jpg",
+    "qtdVotos": 188,
+    "mediaVotos": 4.7184
+  },
+  {
+    "id": 1782500789483,
+    "titulo": "The Batman",
+    "descricao": "Quando um assassino em série sádico começa a matar figuras políticas importantes em Gotham, o Batman é forçado a investigar a corrupção oculta da cidade e questionar o envolvimento de sua família.",
+    "genero": "Ação",
+    "anoLancamento": 2022,
+    "caminhoImagem": "/uploads/image-1782500789476-819313492.jpg",
+    "qtdVotos": 4,
+    "mediaVotos": 4.25
+  }
+]
